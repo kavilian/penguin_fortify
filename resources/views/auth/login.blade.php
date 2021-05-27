@@ -8,7 +8,7 @@
                     <img src="{{ asset('img/login.jpg') }}" alt="login" class="login-card-img">
                 </div>
                 <div class="col-md-7">
-                    @if($errors->any())
+                    {{-- @if($errors->any())
                         @foreach ($errors->all() as $error)
                             <h1>{{ $error }}</h1>
                         @endforeach
@@ -17,7 +17,7 @@
                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                    @enderror
+                    @enderror --}}
                     <div class="card-body">
                         <div class="brand-wrapper">
                             {{-- <img src="{{ asset('img/logo.png')}}" alt="logo" class="logo"> --}}
@@ -27,7 +27,7 @@
                             @csrf
                             <div class="mb-3">
                                 {{-- <label for="email" class="form-label">Email</label> --}}
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                                <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address">
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="mb-4">
                                 <label for="password" class="">Password</label>
-                                <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+                                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="***********">
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
