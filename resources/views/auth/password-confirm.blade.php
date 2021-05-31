@@ -22,28 +22,20 @@
                         <div class="brand-wrapper">
                             {{-- <img src="{{ asset('img/logo.png')}}" alt="logo" class="logo"> --}}
                         </div>
-                        <p class="login-card-description">Sign into your account</p>
-                        <form method="POST" action="{{ route('login') }}">
+                        <p class="login-card-description">Confirm your password</p>
+                        <form method="POST" action="{{ url('user/confirm-password') }}">
                             @csrf
                             <div class="mb-3">
                                 {{-- <label for="email" class="form-label">Email</label> --}}
-                                <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address" value="{{ old('email') }}">
+                                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror">
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                            <div class="mb-4">
-                                <label for="password" class="">Password</label>
-                                <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="***********">
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <input name="login" id="login" class="btn btn-primary login-btn mb-4" type="submit" value="Login">
+                            
+                            <input name="confirm" id="confirm" class="btn btn-primary login-btn mb-4" type="submit" value="Confirm">
                         </form>
                         
                         <a href="#!" class="forgot-password-link">Forgot password?</a>
